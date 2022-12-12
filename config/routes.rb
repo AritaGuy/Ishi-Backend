@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/rooms", to: "rooms#index"
-  get "/roomdetails/:id", to:"rooms#show"
-  patch "/roomdetails/:id", to: "rooms#update"
+  get "/rooms/:id", to:"rooms#show"
+  patch "/rooms/:id", to: "rooms#update"
+  post "/login", to: "sessions#create"
+  post "/signup", to:"users#create"
+  get "/users", to: "users#index"
+  get "/me", to: "users#show"
+  delete "/logout", to: "sessions#destroy"
+  
 end

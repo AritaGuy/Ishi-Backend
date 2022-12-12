@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: Ishi_Backend_production
-  username: Ishi_Backend
+  # database: Ishi_Backend_production
+  # username: Ishi_Backend
   password: <%= ENV["ISHI_BACKEND_DATABASE_PASSWORD"] %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    wrap_parameters format:[]
+    # wrap_parameters format:[]
     
     def create
       user = User.create!(user_params)
@@ -8,7 +8,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find(id: session[:user_id])
+        # return render json:{error: "Not authorized"}, status: :unauthorized unless session.include? :user_id
+        user = User.find_by(id:session[:user_id])
+        render json: user, status: :ok
+    end
+
+    def index
+        user = User.all
         render json: user
     end
 

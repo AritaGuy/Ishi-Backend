@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-    # before_action :authorize
+    before_action :authorize
+
 
     def index
       room = Room.all
@@ -19,7 +20,7 @@ class RoomsController < ApplicationController
 
     private
     def room_params
-        params.permit(:name, :image_url, :description, :payment_token)
+        params.permit(:payment_token)
     end
 
     def authorize
